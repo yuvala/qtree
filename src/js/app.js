@@ -1,6 +1,6 @@
-// import  '../css/main.css';
-// import '../css/input-elements.css';
-import './../css/main.scss';
+ //import  '../css/main.css';
+ //import '../css/input-elements.css';
+import '../scss/main.scss';
 
 import {secretParagraph,secretButton}  from './dom-loader';
 
@@ -16,6 +16,7 @@ var showSecert = false;
  }
 
  function updateSecretButton (){
+     console.log('dddd');
     if(showSecert){
         secretButton.textContent ='hide the secret 999';
     } else {

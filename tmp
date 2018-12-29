@@ -22,3 +22,90 @@
     "lodash": "^4.17.11"
   }
 }
+
+
+
+
+const nodeExternals = require('webpack-node-externals');
+const path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+ 
+// var extractCssPlugin = new ExtractTextPlugin('main.css');
+module.exports = {
+    mode: 'development',
+    entry:'./src/js/app.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/dist'
+    },
+    module: {
+            rules: [{
+				test: /\.scss$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: 'css/[name].blocks.css',
+						}
+					},
+					{
+						loader: 'extract-loader'
+					},
+					{
+						loader: 'css-loader?-url'
+					},
+					{
+						loader: 'postcss-loader'
+					},
+					{
+						loader: 'sass-loader'
+					}
+				]
+			}
+                // {
+                //     test: /\.js$/,
+                //     use: [
+                //         {
+                //             loader: 'babel-loader',
+                //             options: {
+                //               'presets': ['env']
+                //             }
+                //         }
+                        
+                //     ]
+                // }
+                // ,
+
+                // { // sass / scss loader for webpack
+                //     test: /\.(sass|scss)$/,
+                //     loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+                //   },
+                // {
+                //     test: /\.sscss$/,
+                //     use:[
+                //         'style-loader',
+                //         'css-loader', 
+                //         'sass-loader'
+                //     ]
+                //     // use: extractCssPlugin.extract({
+                //     //     fallback: 'style-loader',
+                //     //     use: [
+                //     //        // 'style-loader', // creates style nodes from JS strings
+                //     //         'css-loader', // translates CSS into CommonJS
+                //     //         'sass-loader' // compiles Sass to CSS, using Node Sass by default
+                //     //     ]
+                //     // })
+                    
+                // }
+            ]
+    },
+    // plugins:[
+    //    // new ExtractTextPlugin('main.css')
+    //     new ExtractTextPlugin({ // define where to save the file
+    //         filename: 'bundle.css',
+    //         allChunks: true,
+    //       }),
+    // ]
+};
+ 

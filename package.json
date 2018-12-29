@@ -5,23 +5,29 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:server": "webpack-dev-server",
-    "build": "webpack --mode production ./src/js/app.js --output ./dist/bundle.js"
+    "dev": "webpack-dev-server --mode development ",
+    "build": "webpack --mode production",
+    "_build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^2.1.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.28.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "style-loader": "^0.20.3",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "lodash": "^4.17.11"
