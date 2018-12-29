@@ -1,0 +1,14 @@
+$amount:20;
+
+button {
+    border : 1px solid darken($third-color, $amount);//$dark-color;
+    padding:8px;
+    font:inherit;
+    cursor:pointer;
+    outline: none;
+    background-color:  $third-color;
+}
+
+button:hover {
+    background-color:  lighten($third-color, $amount);
+}
